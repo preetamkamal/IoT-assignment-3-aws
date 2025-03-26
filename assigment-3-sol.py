@@ -1,50 +1,3 @@
-# import paho.mqtt.client as mqtt
-# import ssl
-# import json
-# import random
-# import time
-# import datetime
-
-# # AWS IoT endpoint (found in AWS IoT console under Settings)
-# broker = "a2ao8aow8ghi9v-ats.iot.us-east-2.amazonaws.com"  # e.g., "abcdefghijklm.iot.us-east-1.amazonaws.com"
-# port = 8883
-
-# # Unique station ID
-# station_id = "station_001"
-
-# def generate_sensor_data():
-#     return {
-#         "station_id": station_id,
-#         "temperature": round(random.uniform(-50, 50), 2),
-#         "humidity": round(random.uniform(0, 100), 2),
-#         "co2": random.randint(300, 2000),
-#         "timestamp": datetime.datetime.utcnow().isoformat()
-#     }
-
-# def on_connect(client, userdata, flags, rc):
-#     print("Connected with result code " + str(rc))
-
-# client = mqtt.Client()
-# client.on_connect = on_connect
-
-# # Set TLS parameters: adjust file paths to your downloaded certificates
-# client.tls_set(ca_certs="./connect_device_package/station_001.cert.pem",
-#                certfile="./root-CA.crt",
-#                keyfile="./connect_device_package/station_001.private.key",
-#                tls_version=ssl.PROTOCOL_TLSv1_2)
-
-# client.connect(broker, port, keepalive=60)
-# client.loop_start()
-
-# while True:
-#     sensor_data = generate_sensor_data()
-#     topic = f"environment/{station_id}/sensor"
-#     client.publish(topic, json.dumps(sensor_data))
-#     print("Published:", sensor_data)
-#     time.sleep(10)  # adjust publishing frequency as needed
-
-
-
 import random
 import time
 import ssl
@@ -53,8 +6,8 @@ from awsiot import mqtt_connection_builder
 import uuid
 import json
 
-# AWS IoT Core Configuration - Replace with your actual values
-ENDPOINT = "a2ao8aow8ghi9v-ats.iot.us-east-2.amazonaws.com"  # e.g., 'xxxxxxxxxx-ats.iot.us-east-1.amazonaws.com'
+# AWS IoT Core Configuration 
+ENDPOINT = "a2ao8aow8ghi9v-ats.iot.us-east-2.amazonaws.com" 
 CLIENT_ID = "EnvironmentalStation3"  #Unique ID for each sensor
 THING_NAME = "station_001" # Must match the 'thingName' in your policy
 ROOT_CA = "./new_certs/AmazonRootCA1.pem" #Download from AWS

@@ -1,2 +1,0 @@
-"station_id","timestamp","co2","humidity","payload","temperature"
-"EnvironmentalStation1","1742837587.428363","","","{""temperature"":{""N"":""-10.31""},""humidity"":{""N"":""23.69""},""station_id"":{""S"":""EnvironmentalStation1""},""co2"":{""N"":""321.63""},""timestamp"":{""N"":""1742837587.428363""}}",""
